@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        bai_5();
+        bai_3();
     }
 
     static void bai_1() {
@@ -46,7 +46,7 @@ public class Main {
         }
         for (int i = 1; i <= 31; i++) {
             if (i < 10) {
-                System.out.print("  " + i);
+                System.out.print("   " + i);
             } else {
                 System.out.print("  " + i);
             }
