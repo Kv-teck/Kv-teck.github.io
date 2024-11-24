@@ -9,7 +9,8 @@ public class Ex1 {
     }
 
     private static void Bai2() {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+
     }
 
     private static void Bai1() {
