@@ -31,13 +31,14 @@ public class Bai3 {
         } else if (soDien <= kWhBac2) {
             tienDien = kWhBac1 * bac1 + (soDien - kWhBac1) * bac2;
         } else if (soDien <= kWhBac3) {
-            tienDien = kWhBac1 * bac1 + kWhBac1 * bac2 + (soDien - kWhBac2) * bac3;
+            tienDien = kWhBac1 * bac1 + (kWhBac2 - kWhBac1) * bac2 + (soDien - kWhBac2) * bac3;
         } else if (soDien <= kWhBac4) {
-            tienDien = kWhBac1 * bac1 + kWhBac1 * bac2 + kWhBac2 * bac3 + (soDien - kWhBac3) * bac4;
+            tienDien = kWhBac1 * bac1 + (kWhBac2 - kWhBac1) * bac2 + (kWhBac3 - kWhBac2) * bac3 + (soDien - kWhBac3) * bac4;
         } else if (soDien <= kWhBac5) {
-            tienDien = kWhBac1 * bac1 + kWhBac1 * bac2 + kWhBac2 * bac3 + kWhBac3 * bac4 + (soDien - kWhBac4) * bac5;
-        } else tienDien = kWhBac1 * bac1 + kWhBac1 * bac2 + kWhBac2 * bac3 + kWhBac3 * bac4 + kWhBac4 * bac5 + (soDien - kWhBac5) * bac6;
-
+            tienDien = kWhBac1 * bac1 + (kWhBac2 - kWhBac1) * bac2 + (kWhBac3 - kWhBac2) * bac3 + (kWhBac4 - kWhBac3) * bac4 + (soDien - kWhBac4) * bac5;
+        } else {
+            tienDien = kWhBac1 * bac1 + (kWhBac2 - kWhBac1) * bac2 + (kWhBac3 - kWhBac2) * bac3 + (kWhBac4 - kWhBac3) * bac4 + (kWhBac5 - kWhBac4) * bac5 + (soDien - kWhBac5) * bac6;
+        }
         System.out.println("Tien dien thang " + tienDien);
         scanner.close();
     }
