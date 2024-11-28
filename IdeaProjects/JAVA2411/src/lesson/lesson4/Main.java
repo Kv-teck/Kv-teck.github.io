@@ -1,2 +1,9 @@
-package lesson.lesson4;public class Main {
+package lesson.lesson4;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+    }
 }

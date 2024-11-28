@@ -14,8 +14,8 @@ public class Bai2 {
         int n = scanner.nextInt();
 
         String soNhiPhan = "";
-        while (n > 0) {
-            soNhiPhan += (n % 2);
+        while (n != 0) {
+            soNhiPhan = soNhiPhan + (n % 2);
             n = n / 2;
         }
         System.out.println(soNhiPhan);
