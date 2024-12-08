@@ -1,9 +1,8 @@
 package lesson.lesson6;
 
-public class ConVoi {
-    private String ten;
-    private String tuoi;
-    private String noiO;
+public class Voi extends Animal {
     private String loaiCo;
+    public void hutNuoc(){
 
+    }
 }

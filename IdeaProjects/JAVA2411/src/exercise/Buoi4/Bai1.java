@@ -23,62 +23,74 @@ public class Bai1 {
         c.	Xóa các nguyên âm trong câu
         */
     public static void main(String[] args) {
-        String text = "Ngôn ngữ lập trình Java ban đầu được phát triển bởi Sun Microsystems do James Gosling khởi xướng và phát hành vào năm 1995." +
-                " Phiên bản mới nhất của Java Standard Edition là Java SE 8. Với sự tiến bộ của Java và sự phổ biến rộng rãi của nó," +
-                " nhiều cấu hình đã được xây dựng để phù hợp với nhiều loại nền tảng khác nhau." +
-                " Ví dụ: J2EE cho các ứng dụng doanh nghiệp, J2ME cho các ứng dụng di động.";
-
-        // a) Đếm số lượng từng từ
-        countWords(text);
-
-        // b) Viết hoa chữ đầu trong mỗi từ
-        capitalizeWords(text);
-
-        // c) Xóa các nguyên âm trong câu
-        removeVowels(text);
-    }
-    // a) Đếm số lượng từng từ
-    public static void countWords(String text) {
-        text = text.toLowerCase();
-        String[] words = text.split("[\\W_]+");
-        Map<String, Integer> wordCount = new HashMap<>();
-
-        for (String word : words) {
-            wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
-        }
-
-        System.out.println("a) Đếm số lượng từng từ:");
-        for (Map.Entry<String, Integer> entry : wordCount.entrySet()) {
-            System.out.println(entry.getKey().substring(0, 1).toUpperCase() + entry.getKey().substring(1) + " : " + entry.getValue() + " từ");
-        }
+        String str = "Ngôn ngữ lập trình Java ban đầu được phát triển bởi Sun Microsystems do James Gosling khởi xướng và phát hành vào năm 1995. Phiên bản mới nhất của Java Standard Edition là Java SE 8. Với sự tiến bộ của Java và sự phổ biến rộng rãi của nó, nhiều cấu hình đã được xây dựng để phù hợp với nhiều loại nền tảng khác nhau. Ví dụ: J2EE cho các ứng dụng doanh nghiệp, J2ME cho các ứng dụng di động.";
+        demSoLuongTu(str);
     }
 
-    // b) Viết hoa chữ đầu trong mỗi từ
-    public static void capitalizeWords(String text) {
-        String[] words = text.split(" ");
-        StringBuilder capitalizedText = new StringBuilder();
+    public static void demSoLuongTu(String str) {
+        // cat chuoi
+        String[] arrStr = str.split(" ");
+        // chuan hoa chuoi
+        xoaKyTuDacBiet(arrStr);
 
-        for (String word : words) {
-            capitalizedText.append(word.substring(0, 1).toUpperCase())
-                    .append(word.substring(1)).append(" ");
-        }
+        // tao ra mảng hai chiều chứa kết quả
+        int soDong = arrStr.length;
+        int soCot = 2;
+        int soLuongDongThuTe = 0;
+        String[][] mangKetQua = new String[soDong][soCot];
+        // dem so lan xuat hien
+        for (int i = 0; i < arrStr.length; i++) {
+            boolean boQuaKyTu = false;
+            String kyTuKiemTra = arrStr[i];
 
-        System.out.println("\nb) Viết hoa chữ đầu trong mỗi từ:");
-        System.out.println(capitalizedText.toString().trim());
-    }
-
-    // c) Xóa các nguyên âm trong câu
-    public static void removeVowels(String text) {
-        String vowels = "aeiouAEIOU";
-        StringBuilder result = new StringBuilder();
-
-        for (char c : text.toCharArray()) {
-            if (vowels.indexOf(c) == -1) { // Nếu không phải nguyên âm
-                result.append(c);
+            // kiểm tra tất cả các ký tự từ index = 0 cho tới index = i
+            for (int j = 0; j < i; j++) {
+                // nếu có ký tự nào trùng với từ cần kiểm tra
+                if (kyTuKiemTra.equalsIgnoreCase(arrStr[j])) {
+                    // bo qua từ đó = true
+                    boQuaKyTu = true;
+                    break;
+                }
             }
+            // bỏ qua ký tự nếu ký tự đã được kiem tra
+            if (boQuaKyTu) {
+                continue;
+            }
+            // đếm số lần xuất hiện của từ
+            int count = 0;
+            for (int j = i; j < arrStr.length; j++) {
+                if (kyTuKiemTra.equalsIgnoreCase(arrStr[j])) {
+                    count++;
+                }
+            }
+            // đưa từ đó và số lần xuất hiện vào mảng hai chiều kết quả
+            mangKetQua[soLuongDongThuTe][0] = kyTuKiemTra;
+            mangKetQua[soLuongDongThuTe][1] = String.valueOf(count);
+            soLuongDongThuTe++;
         }
+        // hiển thị kết quả
+        hienThiMangHaiChieu(mangKetQua, soLuongDongThuTe);
+    }
 
-        System.out.println("\nc) Xóa các nguyên âm trong câu:");
-        System.out.println(result.toString());
+    public static void hienThiMangHaiChieu(String[][] arr, int soDongThuTe) {
+        for (int i = 0; i < soDongThuTe; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                String data = arr[i][j];
+                if (j == 0) {
+                    data = data.substring(0, 1).toUpperCase() + data.substring(1);
+                    System.out.printf(data + " : ");
+                    continue;
+                }
+                System.out.printf(arr[i][j] + " từ");
+            }
+            System.out.println("");
+        }
+    }
+
+    public static void xoaKyTuDacBiet(String[] arrStr) {
+        for (int i = 0; i < arrStr.length; i++) {
+            String str = arrStr[i].replace(".", "").replace(";", "").replace(":", "").replace(",", "").trim();
+            arrStr[i] = str;
+        }
     }
 }

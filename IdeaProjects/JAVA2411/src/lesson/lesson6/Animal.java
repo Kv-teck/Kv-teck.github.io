@@ -1,7 +1,7 @@
 package lesson.lesson6;
 
 
-public class Animal2 {
+public class Animal {
     public String ten;
     private String tuoi;
     private String noiO;

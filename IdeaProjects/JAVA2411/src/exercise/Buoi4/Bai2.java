@@ -13,7 +13,7 @@ public class Bai2 {
     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Nhap so de kiem tra có phải so dien thoai không?");
+        System.out.println("Nhap so de kiem tra có phải so dien thoai không");
         String n = scanner.nextLine();
         if (!isValidPhoneNumber(n)) {
             System.out.println(n + " Khong phai so dien thoai");
