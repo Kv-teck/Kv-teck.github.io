@@ -1,7 +1,7 @@
-package lesson.lesson6.BaiTap;
+package exercise.Buoi6.bai1;
 
-public class Lion extends Animal{
-    public void roar(){
+public class Lion extends Animal {
+    public void roar() {
         System.out.println("Lion is roaring");
     }
 
@@ -12,6 +12,11 @@ public class Lion extends Animal{
 
     @Override
     public void action() {
+        System.out.println("The lion is hunting.");
+    }
 
+    @Override
+    public void showInfo(String name, int age) {
+        super.showInfo(name, age);
     }
 }

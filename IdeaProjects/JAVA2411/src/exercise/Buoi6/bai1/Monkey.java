@@ -1,6 +1,6 @@
-package lesson.lesson6.BaiTap;
+package exercise.Buoi6.bai1;
 
-public class Monkey extends Animal{
+public class Monkey extends Animal {
     @Override
     public void makeSound() {
         System.out.println("Monkey is chattering.");
@@ -8,6 +8,11 @@ public class Monkey extends Animal{
 
     @Override
     public void action() {
+        System.out.println("The monkey is climbing trees.");
+    }
 
+    @Override
+    public void showInfo(String name, int age) {
+        super.showInfo(name, age);
     }
 }

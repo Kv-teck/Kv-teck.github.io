@@ -27,7 +27,6 @@ public class Bai2 {
         // Biểu thức chính quy kiểm tra số điện thoại hợp lệ
         String regex = "^(\\+84|84|0)(\\d{9}|\\d{3}[\\.\\-]?\\d{3}[\\.\\-]?\\d{3})$";
 
-        // Kiểm tra chuỗi phoneNumber với biểu thức chính quy
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(phoneNumber);
 

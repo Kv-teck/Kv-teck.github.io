@@ -1,4 +1,4 @@
-package exercise.Buoi6.bai3;
+package exercise.Buoi6.Bai2vsBai3;
 
 public class Bai3 {
 /*

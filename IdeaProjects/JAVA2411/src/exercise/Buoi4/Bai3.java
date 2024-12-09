@@ -61,7 +61,7 @@ public class Bai3 {
                     sapXepMang(array);
                     break;
                 case 5:
-                    System.out.println("Tinh nang chua phat trien");
+                    chiaMangThanhHai(array);
                     break;
                 case 6:
                     inPhanTuTrungLap(array);
@@ -79,6 +79,31 @@ public class Bai3 {
         }while (tiepTuc);
     }
 
+    public static void chiaMangThanhHai(int[] array){
+        int mang = array.length / 2;
+        int[] array1 = new int[mang];
+        int[] array2 = new int[array.length - mang];
+
+        for (int i = 0; i < mang; i++) {
+            array1[i] = array[i];
+        }
+
+        for (int i = mang; i < array.length; i++) {
+            array2[i - mang] = array[i];
+        }
+
+        System.out.print("Mảng con 1: ");
+        for (int i : array1) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        System.out.print("Mảng con 2: ");
+        for (int i : array2) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
     public static void xoaPhanTu(int[] arr){
         System.out.println("Nhập vào phần tử muốn xóa: ");
         int data = new Scanner(System.in).nextInt();

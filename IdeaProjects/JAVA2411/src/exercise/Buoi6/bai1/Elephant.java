@@ -1,4 +1,4 @@
-package lesson.lesson6.BaiTap;
+package exercise.Buoi6.bai1;
 
 public class Elephant extends Animal {
     public void trumpet(){
@@ -12,6 +12,11 @@ public class Elephant extends Animal {
 
     @Override
     public void action() {
+        System.out.println("The elephant is spraying water.");
+    }
 
+    @Override
+    public void showInfo(String name, int age) {
+        super.showInfo(name, age);
     }
 }

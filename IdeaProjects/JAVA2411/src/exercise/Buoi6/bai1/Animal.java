@@ -1,4 +1,6 @@
-package lesson.lesson6.BaiTap;
+package exercise.Buoi6.bai1;
+
+import java.util.Scanner;
 
 public abstract class Animal {
     private String name;
@@ -10,4 +12,9 @@ public abstract class Animal {
     public abstract void makeSound();
 
     public abstract void action();
+    public void showInfo(String name,int age){
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+
+    }
 }
