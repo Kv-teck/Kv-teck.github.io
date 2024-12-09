@@ -1,6 +1,11 @@
 package exercise.Buoi6.bai1;
 
-public class Monkey extends Animal {
+public class Monkey extends Animal{
+    @Override
+    public void eat() {
+        System.out.println("Monkey is eating");
+    }
+
     @Override
     public void makeSound() {
         System.out.println("Monkey is chattering.");
@@ -13,6 +18,14 @@ public class Monkey extends Animal {
 
     @Override
     public void showInfo() {
+        System.out.println("Monkey info: ");
+        // gọi tới hàm show của cha
         super.showInfo();
+    }
+
+    @Override
+    public void enterInfo() {
+        System.out.println("Enter Monkey info: ");
+        super.enterInfo();
     }
 }
