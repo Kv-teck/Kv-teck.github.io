@@ -37,9 +37,10 @@ public class Bai1 {
             animal.action();
         }
         Animal animal =new Lion();
-        animal.showInfo("loo",20);
+        animal.showInfo();
 
-        ManagerAnimal.danhSachAnimal();
+        ManagerAnimal manager = new ManagerAnimal(10);
+        manager.run();
     }
 
 

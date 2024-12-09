@@ -12,7 +12,7 @@ public class Monkey extends Animal {
     }
 
     @Override
-    public void showInfo(String name, int age) {
-        super.showInfo(name, age);
+    public void showInfo() {
+        super.showInfo();
     }
 }
