@@ -1,2 +1,4 @@
-package lesson.lesson8;public class Company {
+package lesson.lesson8;
+//Công ty
+public class Company {
 }

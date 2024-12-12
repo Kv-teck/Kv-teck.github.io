@@ -1,2 +1,4 @@
-package lesson.lesson8;public class HeadOfDepartment {
+package lesson.lesson8;
+//Trưởng phòng
+public class HeadOfDepartment {
 }

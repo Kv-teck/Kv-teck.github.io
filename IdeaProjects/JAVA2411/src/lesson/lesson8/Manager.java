@@ -1,2 +1,4 @@
-package lesson.lesson8;public class Manager {
+package lesson.lesson8;
+//Giám đốc
+public class Manager {
 }
