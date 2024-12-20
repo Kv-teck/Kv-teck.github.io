@@ -2,7 +2,7 @@ package exercise.Module1;
 
 import java.util.Scanner;
 
-public class StudentManager extends Student {
+public class StudentManager{
 
     private Student[] students;
     private int currentStudent;
