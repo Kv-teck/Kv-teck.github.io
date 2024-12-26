@@ -1,7 +1,6 @@
 package lesson.lesson8;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.List;
 import java.util.Scanner;
 
