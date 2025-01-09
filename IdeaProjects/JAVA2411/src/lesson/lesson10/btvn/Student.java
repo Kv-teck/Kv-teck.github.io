@@ -1,4 +1,4 @@
-package buoi10.btvn;
+package lesson.lesson10.btvn;
 
 import java.util.Objects;
 import java.util.Scanner;

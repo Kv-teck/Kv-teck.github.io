@@ -1,4 +1,4 @@
-package buoi10.btvn;
+package lesson.lesson10.btvn;
 
 public class CustomException extends RuntimeException{
 

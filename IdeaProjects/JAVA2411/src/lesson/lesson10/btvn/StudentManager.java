@@ -1,4 +1,4 @@
-package buoi10.btvn;
+package lesson.lesson10.btvn;
 
 import java.util.*;
 import java.util.stream.Collectors;

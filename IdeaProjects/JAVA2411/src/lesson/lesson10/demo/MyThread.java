@@ -1,4 +1,4 @@
-package buoi10.demo;
+package lesson.lesson10.demo;
 
 public class MyThread extends Thread{
     private String name;

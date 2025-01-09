@@ -1,6 +1,4 @@
-package buoi10.demo;
-
-import buoi10.btvn.CustomException;
+package lesson.lesson10.demo;
 
 public class Demo1 {
 
