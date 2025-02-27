@@ -1,6 +1,4 @@
-package vn.com.t3h.antino.util;
-
-import vn.com.t3h.antino.config.ConfigInit;
+package vn.edu.t3h.employeemanager.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,18 +6,16 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 
-    static {
+    private static final String URL = "jdbc:mysql://localhost:3306/quanlynhansu";
+    private static final String USER = "root";
+    private static final String PASSWORD = "khiet";
+
+    public static Connection getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("Driver loaded successfully!");
-        } catch (ClassNotFoundException e) {
-            System.err.println("Failed to load MySQL driver!");
-            e.printStackTrace();
+            return DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException("Lỗi kết nối CSDL", e);
         }
-    }
-
-    public static Connection getConnection() throws SQLException {
-        // Sử dụng các giá trị cấu hình từ class Config Init
-        return DriverManager.getConnection(ConfigInit.DB_URL, ConfigInit.DB_USERNAME, ConfigInit.DB_PASSWORD);
     }
 }

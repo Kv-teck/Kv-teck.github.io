@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ADMIN
@@ -14,18 +15,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>Admin: Thêm sản phẩm</title>
-
-    <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
-
     <!-- Bootstrap v5.0.1 -->
-    <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
-    <script src="js/bootstrap.bundle.js" type="text/javascript"></script>
+    <link href="/resources/css/bootstrap.css" type="text/css" rel="stylesheet">
+    <script src="/resources/js/bootstrap.bundle.js" type="text/javascript"></script>
 
     <!-- Bootstrap Icons v1.5.0 -->
-    <link href="css/bootstrap-icons.css" type="text/css" rel="stylesheet">
+    <link href="/resources/css/bootstrap-icons.css" type="text/css" rel="stylesheet">
 
     <!-- Custom Styles -->
-    <link href="css/styles.css" type="text/css" rel="stylesheet">
+    <link href="/resources/css/styles.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>

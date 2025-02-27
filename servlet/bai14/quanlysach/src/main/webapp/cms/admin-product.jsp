@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ADMIN
@@ -15,17 +16,15 @@
 
     <title>Admin: Quản lý sản phẩm</title>
 
-    <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
-
     <!-- Bootstrap v5.0.1 -->
-    <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
-    <script src="js/bootstrap.bundle.js" type="text/javascript"></script>
+    <link href="/resources/css/bootstrap.css" type="text/css" rel="stylesheet">
+    <script src="/resources/js/bootstrap.bundle.js" type="text/javascript"></script>
 
     <!-- Bootstrap Icons v1.5.0 -->
-    <link href="css/bootstrap-icons.css" type="text/css" rel="stylesheet">
+    <link href="/resources/css/bootstrap-icons.css" type="text/css" rel="stylesheet">
 
     <!-- Custom Styles -->
-    <link href="css/styles.css" type="text/css" rel="stylesheet">
+    <link href="/resources/css/styles.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -35,7 +34,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-11 py-3">
-                    <a class="text-body" href="./home.html">
+                    <a class="text-body" href="/home">
                         <h3>Shop Bán Sách : Admin</h3>
                     </a>
                 </div> <!-- col.// -->
@@ -87,13 +86,12 @@
     <div class="container">
         <header class="section-heading py-4 d-flex justify-content-between">
             <h3 class="section-title">Quản lý sản phẩm</h3>
-            <a class="btn btn-primary" href="#" role="button" style="height: fit-content;">Thêm sản phẩm</a>
+            <a class="btn btn-primary" href="/cms/admin-add-product" role="button" style="height: fit-content;">Thêm sản phẩm</a>
         </header> <!-- section-heading.// -->
         <main class="table-responsive-xl mb-5">
             <table class="table table-bordered table-striped table-hover align-middle">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">ID</th>
                     <th scope="col">Tên sách</th>
                     <th scope="col">Tác giả</th>
@@ -106,54 +104,25 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>1</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td class="text-center text-nowrap">
-                        <a class="btn btn-primary me-2" href="#" role="button">Xem</a>
-                        <a class="btn btn-success me-2" href="#" role="button">Sửa</a>
-                        <a class="btn btn-danger" href="#" role="button">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>2</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td class="text-center text-nowrap">
-                        <a class="btn btn-primary me-2" href="#" role="button">Xem</a>
-                        <a class="btn btn-success me-2" href="#" role="button">Sửa</a>
-                        <a class="btn btn-danger" href="#" role="button">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>3</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td class="text-center text-nowrap">
-                        <a class="btn btn-primary me-2" href="#" role="button">Xem</a>
-                        <a class="btn btn-success me-2" href="#" role="button">Sửa</a>
-                        <a class="btn btn-danger" href="#" role="button">Xóa</a>
-                    </td>
-                </tr>
+                <c:forEach var="product" items="${productModels}">
+                    <tr>
+                        <td>${product.id}</td>
+                        <td>${product.name}</td>
+                        <td>${product.totalBuy}</td>
+                        <td>${product.author}</td>
+                        <td>${product.pages}</td>
+                        <td>Thể loại</td>
+                        <td>${product.publisher}</td>
+                        <td>Số lượt mua</td>
+                        <td class="text-center text-nowrap">
+                            <a class="btn btn-primary me-2" href="#" role="button">Xem</a>
+                            <a class="btn btn-success me-2" href="#" role="button">Sửa</a>
+                            <a class="btn btn-danger" href="#" role="button">Xóa</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+
+
                 </tbody>
             </table>
         </main> <!-- book-manager-table.// -->

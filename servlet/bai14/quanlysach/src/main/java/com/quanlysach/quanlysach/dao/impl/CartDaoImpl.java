@@ -1,4 +1,7 @@
-package com.quanlysach.quanlysach.dao;
+package com.quanlysach.quanlysach.dao.impl;
 
-public class CartDao {
+import com.quanlysach.quanlysach.dao.ICartDao;
+
+public class CartDaoImpl implements ICartDao {
+
 }

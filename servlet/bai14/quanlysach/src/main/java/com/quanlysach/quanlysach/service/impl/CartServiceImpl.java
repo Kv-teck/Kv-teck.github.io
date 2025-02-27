@@ -1,4 +1,7 @@
 package com.quanlysach.quanlysach.service.impl;
 
-public class CartServiceImpl {
+import com.quanlysach.quanlysach.service.ICartService;
+
+public class CartServiceImpl implements ICartService {
+
 }

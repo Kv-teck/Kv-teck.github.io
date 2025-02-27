@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -12,9 +11,7 @@
 </head>
 <body>
 <div class="container my-4">
-    <div style="float: right">
-        <a href="${applicationScope.baseUrl}/logout">Đăng xuất</a>
-    </div>
+
     <h1 class="text-center mb-4">Manager Employee</h1>
 
     <!-- Form tìm kiếm với các trường hiển thị ngang -->
@@ -52,7 +49,7 @@
     </form>
     <!-- Button thêm mới -->
     <div class="mt-3">
-        <form action="/cms/action-employee" method="get">
+        <form action="/cms/employees" method="get">
             <button type="submit" class="btn btn-success">
                 <i class="fas fa-plus"></i> Add New
             </button>
@@ -82,10 +79,10 @@
                 <td>${employeeModel.departmentName}</td>
                 <td>${employeeModel.hireDate}</td>
                 <td>
-                    <a href="/cms/action-employee?id=${employeeModel.employeeId}" class="btn btn-warning btn-sm">
+                    <a href="/cms/employees?id=${employeeModel.employeeId}" class="btn btn-warning btn-sm">
                         <i class="fas fa-edit"></i>
                     </a>
-                    <form action="/cms/action-employee?id=${employeeModel.employeeId}&deleted=true" method="post">
+                    <form action="/cms/employees?id=${employeeModel.employeeId}&deleted=true" method="post">
                         <button type="submit" class="btn btn-danger">
                             <i class="fas fa-trash-alt"></i>
                         </button>

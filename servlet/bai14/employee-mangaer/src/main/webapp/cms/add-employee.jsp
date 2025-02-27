@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +30,7 @@
         <c:if test="${not empty model.employeeId}">
             <h2 class="mb-4 text-center">Edit Employee</h2>
         </c:if>
-        <form action="/cms/action-employee" method="POST">
+        <form action="/cms/add-employee" method="POST">
             <input type="text" class="form-control" id="employeeId" name="employeeId" hidden
                    value="${model.employeeId}" required>
             <div class="mb-3">
@@ -56,10 +55,10 @@
                 <label for="departmentName" class="form-label">Department</label>
                 <select class="form-select" id="departmentName" name="departmentName" required>
                     <option value="">Select Department</option>
-                    <option value="1" ${model.departmentName == 'IT' ? 'selected' : ''}>IT</option>
-                    <option value="2" ${model.departmentName == 'HR' ? 'selected' : ''}>HR</option>
-                    <option value="3" ${model.departmentName == 'Finance' ? 'selected' : ''}>Finance</option>
-                    <option value="5" ${model.departmentName == 'AI' ? 'selected' : ''}>AI</option>
+                    <option value="1" ${model.departmentName == 1 ? 'selected' : ''}>IT</option>
+                    <option value="2" ${model.departmentName == 2 ? 'selected' : ''}>HR</option>
+                    <option value="3" ${model.departmentName == 3 ? 'selected' : ''}>Finance</option>
+                    <option value="5" ${model.departmentName == 5 ? 'selected' : ''}>AI</option>
                 </select>
             </div>
             <div class="mb-3">

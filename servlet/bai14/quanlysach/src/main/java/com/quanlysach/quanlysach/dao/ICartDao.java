@@ -1,4 +1,4 @@
-package com.quanlysach.quanlysach.dao.impl;
+package com.quanlysach.quanlysach.dao;
 
 public interface ICartDao {
 

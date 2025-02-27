@@ -1,19 +1,13 @@
-package vn.com.t3h.antino.dao;
+package vn.edu.t3h.employeemanager.dao;
 
-import vn.com.t3h.antino.model.EmployeeModel;
-
+import vn.edu.t3h.employeemanager.model.EmployeeModel;
 import java.util.List;
 
 public interface EmployeeDAO {
-
     List<EmployeeModel> getAllEmployees();
-
-    List<EmployeeModel> getAllEmployees2(String name, Long salary, String fromDate, String toDate, String position);
-
-    int addEmployee(EmployeeModel employee);
-
-    int updateEmployee(EmployeeModel employee);
-    public EmployeeModel getEmployeeById(Integer id);
-
-    int deleteEmployee(int employeeId);
+    EmployeeModel getEmployeeById(int id);
+    List<EmployeeModel> searchEmployees(String keyword);
+    void addEmployee(EmployeeModel employee);
+    void updateEmployee(EmployeeModel employee);
+    void deleteEmployee(int id);
 }

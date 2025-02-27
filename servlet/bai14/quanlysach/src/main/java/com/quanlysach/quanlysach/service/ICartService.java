@@ -1,4 +1,4 @@
 package com.quanlysach.quanlysach.service;
 
-public class ICartService {
+public interface ICartService {
 }

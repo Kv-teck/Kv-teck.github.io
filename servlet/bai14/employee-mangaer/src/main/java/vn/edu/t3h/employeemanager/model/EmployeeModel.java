@@ -1,18 +1,31 @@
-package vn.com.t3h.antino.model;
+package vn.edu.t3h.employeemanager.model;
 
 public class EmployeeModel {
-    private Integer employeeId;
+    private int employeeId;
     private String name;
     private String position;
     private double salary;
     private String departmentName;
     private String hireDate;
 
-    public Integer getEmployeeId() {
+    // Constructor, getters, setters
+    public Employee() {}
+
+    public Employee(int employeeId, String name, String position, double salary, String departmentName, String hireDate) {
+        this.employeeId = employeeId;
+        this.name = name;
+        this.position = position;
+        this.salary = salary;
+        this.departmentName = departmentName;
+        this.hireDate = hireDate;
+    }
+    // Getter và Setter
+
+    public int getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(Integer employeeId) {
+    public void setEmployeeId(int employeeId) {
         this.employeeId = employeeId;
     }
 
