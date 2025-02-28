@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ADMIN
@@ -32,7 +33,7 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-11 py-3">
-          <a class="text-body" href="./home.html">
+          <a class="text-body" href="/home">
             <h3>Shop Bán Sách : Admin</h3>
           </a>
         </div> <!-- col.// -->
@@ -75,7 +76,13 @@
           <a class="nav-link" href="#"><i class="bi bi-inboxes"></i> Quản lý đơn hàng</a>
         </li>
       </ul>
-      <a class="btn btn-primary" href="#" role="button">Đăng nhập</a>
+      <c:if test="${not empty currentUser}">
+        <span class="me-2">Xin chào, ${currentUser.fullName}</span>
+        <a class="btn btn-primary" href="${applicationScope.baseUrl}/signout" role="button">Đăng xuất</a>
+      </c:if>
+      <c:if test="${empty currentUser}">
+        <a class="btn btn-primary" href="${applicationScope.baseUrl}/signin" role="button">Đăng nhập</a>
+      </c:if>
     </div>
   </div> <!-- container.// -->
 </nav> <!-- navbar-main.// -->

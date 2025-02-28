@@ -109,8 +109,8 @@
                     <a class="nav-link" href="#">Khuyến mãi</a>
                 </li>
             </ul>
-            <a class="btn btn-light me-2" href="#" role="button">Đăng ký</a>
-            <a class="btn btn-primary" href="#" role="button">Đăng nhập</a>
+<%--            <a class="btn btn-light me-2" href="#" role="button">Đăng ký</a>--%>
+<%--            <a class="btn btn-primary" href="#" role="button">Đăng nhập</a>--%>
         </div>
     </div> <!-- container.// -->
 </nav> <!-- navbar-main.// -->
@@ -128,9 +128,34 @@
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
             </form>
-            <c:if test="${not empty error}">
-                <div class="alert alert-danger">${error}</div>
-            </c:if>
+            <c:choose>
+                <c:when test="${not empty message}">
+                    <c:choose>
+                        <c:when test="${message == 'loginSuccess'}">
+                            <div id="loginSuccess" class="alert alert-danger">
+                                <span>Đăng nhập thành công!</span>
+                            </div>
+                        </c:when>
+                        <c:when test="${message == 'loginError'}">
+                            <div id="loginError" class="alert alert-danger">
+                                <span>Đăng nhập thất bại!</span>
+                            </div>
+                        </c:when>
+                        <c:when test="${message == 'permissionDenied'}">
+                            <div id="permissionDenied" class="notification error show">
+                                <span>Bạn không có quyền truy cập vào tài nguyên!</span>
+                                <span class="close-btn" onclick="closeNotification('permissionDenied')">×</span>
+                            </div>
+                        </c:when>
+                        <c:when test="${message == 'dontLogin'}">
+                            <div id="dontLogin" class="notification error show">
+                                <span>Đăng nhập  truy cập tài nguyen!</span>
+                                <span class="close-btn" onclick="closeNotification('dontLogin')">×</span>
+                            </div>
+                        </c:when>
+                    </c:choose>
+                </c:when>
+            </c:choose>
         </div> <!-- card-body.// -->
     </div> <!-- card .// -->
     <p class="text-center mt-4">Không có tài khoản? <a href="#">Đăng ký</a></p>

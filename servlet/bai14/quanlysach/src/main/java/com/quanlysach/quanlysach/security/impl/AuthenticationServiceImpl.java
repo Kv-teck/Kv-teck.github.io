@@ -21,7 +21,6 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
         //Authentication: Kiểm tra username, password có tồn tại trong database không
         UserModel userModel = userService.findUserByUserNameAndPassword(username, password);
         if (userModel == null) {
-            System.out.println("Không tìm thấy user trong database!");
             return "/signin?message=loginError";
         }
         request.getSession().setAttribute(SessionUtil.SESSION_ID_CURRENT_USER, userModel);

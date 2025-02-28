@@ -104,8 +104,14 @@
                     <a class="nav-link" href="#">Khuyến mãi</a>
                 </li>
             </ul>
-            <a class="btn btn-light me-2" href="#" role="button">Đăng ký</a>
-            <a class="btn btn-primary" href="/signin" role="button">Đăng nhập</a>
+            <c:if test="${not empty currentUser}">
+                <span class="me-2" >Xin chào, ${currentUser.fullName}</span>
+                <a class="btn btn-primary" href="${applicationScope.baseUrl}/signout" role="button">Đăng xuất</a>
+            </c:if>
+            <c:if test="${empty currentUser}">
+                <a class="btn btn-light me-2" href="#" role="button">Đăng ký</a>
+                <a class="btn btn-primary" href="${applicationScope.baseUrl}/signin" role="button">Đăng nhập</a>
+            </c:if>
         </div>
     </div> <!-- container.// -->
 </nav> <!-- navbar-main.// -->

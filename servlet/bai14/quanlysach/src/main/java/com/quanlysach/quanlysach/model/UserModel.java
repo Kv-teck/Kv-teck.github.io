@@ -23,6 +23,21 @@ public class UserModel {
         this.role = role;
     }
 
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", gender=" + gender +
+                ", address='" + address + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

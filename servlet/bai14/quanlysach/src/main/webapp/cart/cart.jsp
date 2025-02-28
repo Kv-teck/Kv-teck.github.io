@@ -110,8 +110,14 @@
                     <a class="nav-link" href="#">Khuyến mãi</a>
                 </li>
             </ul>
-            <a class="btn btn-light me-2" href="#" role="button">Đăng ký</a>
-            <a class="btn btn-primary" href="#" role="button">Đăng nhập</a>
+            <c:if test="${not empty currentUser}">
+                <span class="me-2" >Xin chào, ${currentUser.fullName}</span>
+                <a class="btn btn-primary" href="${applicationScope.baseUrl}/signout" role="button">Đăng xuất</a>
+            </c:if>
+            <c:if test="${empty currentUser}">
+                <a class="btn btn-light me-2" href="#" role="button">Đăng ký</a>
+                <a class="btn btn-primary" href="${applicationScope.baseUrl}/signin" role="button">Đăng nhập</a>
+            </c:if>
         </div>
     </div> <!-- container.// -->
 </nav> <!-- navbar-main.// -->
@@ -140,51 +146,44 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>
-                                    <figure class="itemside">
-                                        <div class="float-start me-3"><img src="img/80px.png"></div>
-                                        <figcaption class="info">
-                                            <a href="#" class="title">Tiếng Việt lớp 1</a>
-                                        </figcaption>
-                                    </figure>
-                                </td>
-                                <td>
-                                    <div class="price-wrap">
-                                        <span class="price">20.000₫</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <input type="number" value="1" min="1" class="form-control">
-                                </td>
-                                <td class="text-center text-nowrap">
-                                    <a href="#" class="btn btn-success">Cập nhật</a>
-                                    <a href="#" class="btn btn-danger ms-1">Xóa</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <figure class="itemside">
-                                        <div class="float-start me-3"><img src="img/80px.png"></div>
-                                        <figcaption class="info">
-                                            <a href="#" class="title">Tiếng Việt lớp 2</a>
-                                        </figcaption>
-                                    </figure>
-                                </td>
-                                <td>
-                                    <div class="price-wrap">
-                                        <span class="price">30.000₫</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <input type="number" value="1" min="1" class="form-control">
-                                </td>
-                                <td class="text-center text-nowrap">
-                                    <a href="#" class="btn btn-success">Cập nhật</a>
-                                    <a href="#" class="btn btn-danger ms-1">Xóa</a>
-                                </td>
-                            </tr>
+                            <c:choose>
+                                <c:when test="${empty cart.cartItems}">
+                                    <tr>
+                                        <td colspan="4" class="text-center text-danger">Giỏ hàng của bạn đang trống!</td>
+                                    </tr>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:forEach var="item" items="${cart.cartItems}">
+                                        <tr>
+                                            <td>
+                                                <figure class="itemside">
+                                                    <div class="float-start me-3">
+                                                        <img src="" alt="Ảnh sản phẩm">
+                                                    </div>
+                                                    <figcaption class="info">
+                                                        <a href="#" class="title"></a>
+                                                    </figcaption>
+                                                </figure>
+                                            </td>
+                                            <td>
+                                                <div class="price-wrap">
+                                                    <span class="price">₫</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="number" value="${item.quantity}" min="1" class="form-control">
+                                            </td>
+                                            <td class="text-center text-nowrap">
+                                                <a href="update-cart?productId=${item.productId}" class="btn btn-success">Cập nhật</a>
+                                                <a href="delete-cart?productId=${item.productId}" class="btn btn-danger ms-1">Xóa</a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:otherwise>
+                            </c:choose>
                             </tbody>
+
+
                         </table>
                     </div> <!-- table.responsive-md.// -->
 

@@ -29,7 +29,7 @@ public class AuthorizationFilter implements Filter {
         UserModel currentUser = (UserModel) request.getSession().getAttribute(SessionUtil.SESSION_ID_CURRENT_USER);
 
         String uri = request.getRequestURI();
-        if (uri.startsWith("/cms") || uri.startsWith("/cart")) {
+        if (uri.startsWith("/cms")) {
             if (currentUser != null) {
                 String roleString = currentUser.getRole();
 
@@ -38,7 +38,7 @@ public class AuthorizationFilter implements Filter {
                     try {
                         userRole = Constants.ROLE.valueOf(roleString.toUpperCase());
                     } catch (IllegalArgumentException e) {
-                        response.sendRedirect("/signin?message=" + Constants.PERMISSION_DENIED);
+                        response.sendRedirect("/home?message=" + Constants.PERMISSION_DENIED);
                         return;
                     }
 
@@ -50,9 +50,9 @@ public class AuthorizationFilter implements Filter {
                         return;
                     }
                 }
-                response.sendRedirect("/signin?message=" + Constants.PERMISSION_DENIED);
+                response.sendRedirect("/home?message=" + Constants.PERMISSION_DENIED);
             } else {
-                response.sendRedirect("/signin?message=" + Constants.DONT_LOGIN);
+                response.sendRedirect("/home?message=" + Constants.DONT_LOGIN);
             }
         } else {
             filterChain.doFilter(request, response);
