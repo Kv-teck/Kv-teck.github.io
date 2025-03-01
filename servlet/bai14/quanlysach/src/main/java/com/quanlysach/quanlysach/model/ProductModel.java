@@ -14,6 +14,28 @@ public class ProductModel {
     private String description;
     private String imageName;
     private Boolean shop;
+    private Double discountedPrice;
+
+    public ProductModel() {}
+    public ProductModel(Integer id, String name,Double price, Integer discount,Integer quantity,Integer totalBuy,String author,
+                        Integer pages,String publisher,Integer yearPublishing,String description,String imageName,Boolean shop,
+                        Double discountedPrice) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.discount = discount;
+        this.quantity = quantity;
+        this.totalBuy = totalBuy;
+        this.author = author;
+        this.pages = pages;
+        this.publisher = publisher;
+        this.yearPublishing = yearPublishing;
+        this.description = description;
+        this.imageName = imageName;
+        this.shop = shop;
+        this.discountedPrice = discountedPrice;
+    }
+
 
     public Double getPrice() {
         return price;
@@ -120,4 +142,11 @@ public class ProductModel {
     }
 
 
+    public Double getDiscountedPrice() {
+        return discountedPrice;
+    }
+
+    public void setDiscountedPrice(Double discountedPrice) {
+        this.discountedPrice = discountedPrice;
+    }
 }

@@ -85,7 +85,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown"
                        aria-expanded="false">
                         <strong><i class="bi bi-list"></i> Danh mục sản phẩm</strong>
                     </a>
@@ -111,7 +112,7 @@
                 </li>
             </ul>
             <c:if test="${not empty currentUser}">
-                <span class="me-2" >Xin chào, ${currentUser.fullName}</span>
+                <span class="me-2">Xin chào, ${currentUser.fullName}</span>
                 <a class="btn btn-primary" href="${applicationScope.baseUrl}/signout" role="button">Đăng xuất</a>
             </c:if>
             <c:if test="${empty currentUser}">
@@ -140,6 +141,7 @@
                             <thead class="text-muted">
                             <tr class="small text-uppercase">
                                 <th scope="col" style="min-width: 280px;">Sản phẩm</th>
+                                <th scope="col" width="150" style="min-width: 150px;">Giảm giá (%)</th>
                                 <th scope="col" width="150" style="min-width: 150px;">Giá</th>
                                 <th scope="col" width="150" style="min-width: 150px;">Số lượng</th>
                                 <th scope="col" width="100" style="min-width: 100px;"></th>
@@ -149,7 +151,8 @@
                             <c:choose>
                                 <c:when test="${empty cart.cartItems}">
                                     <tr>
-                                        <td colspan="4" class="text-center text-danger">Giỏ hàng của bạn đang trống!</td>
+                                        <td colspan="4" class="text-center text-danger">Giỏ hàng của bạn đang trống!
+                                        </td>
                                     </tr>
                                 </c:when>
                                 <c:otherwise>
@@ -158,7 +161,7 @@
                                             <td>
                                                 <figure class="itemside">
                                                     <div class="float-start me-3">
-                                                        <img src="" alt="Ảnh sản phẩm">
+                                                        <img src="${item.productModel.imageName}" alt="Ảnh sản phẩm">
                                                     </div>
                                                     <figcaption class="info">
                                                         <a href="#" class="title"></a>
@@ -167,15 +170,23 @@
                                             </td>
                                             <td>
                                                 <div class="price-wrap">
-                                                    <span class="price">₫</span>
+                                                    <span class="price">${item.productModel.discount}%</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <input type="number" value="${item.quantity}" min="1" class="form-control">
+                                                <div class="price-wrap">
+                                                    <span class="price">${item.productModel.discountedPrice}₫</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="number" value="${item.quantity}" min="1"
+                                                       class="form-control">
                                             </td>
                                             <td class="text-center text-nowrap">
-                                                <a href="update-cart?productId=${item.productId}" class="btn btn-success">Cập nhật</a>
-                                                <a href="delete-cart?productId=${item.productId}" class="btn btn-danger ms-1">Xóa</a>
+                                                <a href="update-cart?productId=${item.productId}"
+                                                   class="btn btn-success">Cập nhật</a>
+                                                <a href="delete-cart?productId=${item.productId}"
+                                                   class="btn btn-danger ms-1">Xóa</a>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -202,11 +213,13 @@
                         <p class="card-title">Hình thức giao hàng</p>
                         <form action="">
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="radio" name="delivery_method" id="delivery_method_1" checked>
+                                <input class="form-check-input" type="radio" name="delivery_method"
+                                       id="delivery_method_1" checked>
                                 <label class="form-check-label" for="delivery_method_1">Giao tiêu chuẩn</label>
                             </div>
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="radio" name="delivery_method" id="delivery_method_2">
+                                <input class="form-check-input" type="radio" name="delivery_method"
+                                       id="delivery_method_2">
                                 <label class="form-check-label" for="delivery_method_2">Giao nhanh</label>
                             </div>
                         </form>

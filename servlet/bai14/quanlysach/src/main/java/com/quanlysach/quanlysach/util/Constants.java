@@ -25,6 +25,7 @@ public class Constants {
             "/cms/admin-add-product"
     );
     public static final Set<String> CUSTOMER_PATHS = Set.of(
-            "/home"
+            "/home",
+            "/cart"
     );
 }

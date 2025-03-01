@@ -29,7 +29,7 @@ public class AuthorizationFilter implements Filter {
         UserModel currentUser = (UserModel) request.getSession().getAttribute(SessionUtil.SESSION_ID_CURRENT_USER);
 
         String uri = request.getRequestURI();
-        if (uri.startsWith("/cms")) {
+        if (uri.startsWith("/cms") ||(uri.startsWith("/cart"))) {
             if (currentUser != null) {
                 String roleString = currentUser.getRole();
 
